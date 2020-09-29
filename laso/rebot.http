@@ -1,0 +1,45 @@
+POST   http://tools.genebox.cn/api/robot/send?access_token=1082c084eebddab9ee4c0236e5304f839c694947384aff91395df52fa9e66823
+Content-Type: application/json
+
+{
+     "msgtype": "text",
+     "text": {
+         "content": "#### @18630163820 h5杭州天气\n"
+     },
+    "at": {
+        "atMobiles": [
+            "18630163820"
+        ], 
+        "isAtAll": false
+    }
+ }
+###
+
+POST   https://oapi.dingtalk.com/robot/send?access_token=1082c084eebddab9ee4c0236e5304f839c694947384aff91395df52fa9e66823
+Content-Type: application/json
+
+{
+     "msgtype": "text",
+     "text": {
+         "content": "#### @18630163820 h5杭州天气\n"
+     },
+    "at": {
+        "atMobiles": [
+            "18630163820", 
+        ], 
+        "isAtAll": false
+    }
+ }
+
+###
+GET http://127.0.0.1/apphome/
+
+###
+GET http://127.0.0.1/apphome/new/_19-09-05-s.html
+
+###
+POST  http://127.0.0.1/news/send?access_token=1082c084eebddab9ee4c0236e5304f839c694947384aff91395df52fa9e66823
+
+###
+GET http://beta.genebox.cn/public/article/418?reportStatusCode=1&type=pheno&firstId=13&thirdId=418&boxNumber=10194377827
+version: 2.5.0

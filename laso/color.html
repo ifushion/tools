@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
+  <script>
+    var vConsole = new VConsole();
+  </script> -->
+</head>
+<body>
+  <script>
+    let isDark = false
+    let startTime = null
+    const getCount = 10000;
+    const refresh = 10000;
+  </script>
+
+  <!-- get -->
+  <script>
+    const colora = {
+      cffffff: '#ffffff'
+    };
+    const colorb = {
+      cffffff: '#000000'
+    };
+    const getColor = {
+      get cffffff() {
+        return isDark ? colora.cffffff : colorb.cffffff;
+      },
+    };
+    
+    function getMethod() {
+      startTime = Date.now();
+      isDark = false;
+      let a = '';
+      for (let i = 0; i < getCount; null) {
+        a += getColor.cffffff;
+        i += 1;
+      }
+      isDark = true;
+      let b = '';
+      for (let i = 0; i < getCount; null) {
+        b += getColor.cffffff;
+        i += 1;
+      }
+      return Date.now() - startTime
+    }
+    let getTime = 0;
+    for (let i = 0; i < refresh; i++) {
+      getTime += getMethod()
+    }
+    console.log(`${refresh * getCount}次get: ${getTime / refresh}`)
+  </script>
+
+  <!-- proxy -->
+  <script>
+    const colorMap = {
+      cffffff: '#000000',
+    };
+    const proxyColor = new Proxy({}, {
+      get: function (target, propKey, receiver) {
+        return isDark
+          ? colorMap[propKey]
+          : propKey;
+          // : `#${propKey.slice(1)}`;
+      }
+    });
+
+    function proxyMethod() {
+      startTime = Date.now();
+      isDark = false;
+      let a = '';
+      for (let i = 0; i < getCount; null) {
+        a += proxyColor.cffffff;
+        i += 1;
+      }
+      isDark = true;
+      let b = '';
+      for (let i = 0; i < getCount; null) {
+        b += proxyColor.cffffff;
+        i += 1;
+      }
+      return Date.now() - startTime
+    }
+    let proxyTime = 0;
+    for (let i = 0; i < refresh; i++) {
+      proxyTime += proxyMethod()
+    }
+    console.log(`${refresh * getCount}次proxy: ${proxyTime / refresh}`)
+  </script>
+</body>
+</html>
